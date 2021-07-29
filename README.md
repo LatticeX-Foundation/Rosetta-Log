@@ -8,7 +8,7 @@ LatticeX Foundation is pleased to support the open source community by making  R
 
 * [Rosetta-Log GitHub](https://github.com/LatticeX-Foundation/Rosetta-Log)
   * [English](https://github.com/LatticeX-Foundation/Rosetta-Log)
-  * [简体中文](https://github.com/LatticeX-Foundation/Rosetta-Log/readme.zh-cn.md)
+  * [简体中文](https://github.com/LatticeX-Foundation/Rosetta-Log/blob/main/readme.zh-cn.md)
   * [spdlog](https://github.com/gabime/spdlog)
 
 # 1 Introduction 
