@@ -1,0 +1,58 @@
+2021-07-29 10:51:04.492|trace|test.cpp:71|main|hello world again - 9909
+2021-07-29 10:51:04.492|trace|test.cpp:72|main|TRACE
+2021-07-29 10:51:04.492|debug|test.cpp:73|main|DEB
+2021-07-29 10:51:04.492|audit|test.cpp:74|main|AUDIT 123
+2021-07-29 10:51:04.492|info|test.cpp:75|main|INFO
+2021-07-29 10:51:04.492|warning|test.cpp:76|main|WARN
+2021-07-29 10:51:04.492|error|test.cpp:77|main|ERROR
+2021-07-29 10:51:04.492|fatal|test.cpp:78|main|FATAL
+2021-07-29 10:51:04.492|trace|test.cpp:82|main|log_trace
+2021-07-29 10:51:04.492|debug|test.cpp:83|main|log_debug
+2021-07-29 10:51:04.492|audit|test.cpp:84|main|log_audit
+2021-07-29 10:51:04.492|info|test.cpp:85|main|log_info
+2021-07-29 10:51:04.492|warning|test.cpp:86|main|log_warn
+2021-07-29 10:51:04.492|error|test.cpp:87|main|log_error
+2021-07-29 10:51:04.492|fatal|test.cpp:88|main|log_fatal
+2021-07-29 10:51:04.492|trace|test.cpp:92|main|ZERO Trace file and console
+2021-07-29 10:51:04.492|debug|test.cpp:93|main|ZERO Deb file and console
+2021-07-29 10:51:04.492|audit|test.cpp:94|main|ZERO Audit file and console
+2021-07-29 10:51:04.492|info|test.cpp:95|main|ZERO Info file and console
+2021-07-29 10:51:04.492|warning|test.cpp:96|main|ZERO Warn file and console
+2021-07-29 10:51:04.492|error|test.cpp:97|main|ZERO Error file and console
+2021-07-29 10:51:04.492|fatal|test.cpp:98|main|ZERO Fatal file and console
+2021-07-29 10:51:04.492|trace|test.cpp:102|main|Trace file and console
+2021-07-29 10:51:04.492|debug|test.cpp:103|main|Deb file and console
+2021-07-29 10:51:04.493|audit|test.cpp:104|main|Audit file and console
+2021-07-29 10:51:04.493|info|test.cpp:105|main|Info file and console
+2021-07-29 10:51:04.493|warning|test.cpp:106|main|Warn file and console
+2021-07-29 10:51:04.493|error|test.cpp:107|main|Error file and console
+2021-07-29 10:51:04.493|fatal|test.cpp:108|main|Fatal file and console
+[2021-07-29 10:51:04.493] [test_sink] [trace] [test.cpp:115] hello world again - 9909
+[2021-07-29 10:51:04.493] [test_sink] [trace] [test.cpp:116] TRACE
+[2021-07-29 10:51:04.493] [test_sink] [debug] [test.cpp:117] DEB
+[2021-07-29 10:51:04.493] [test_sink] [audit] [test.cpp:118] AUDIT 123
+[2021-07-29 10:51:04.493] [test_sink] [info] [test.cpp:119] INFO
+[2021-07-29 10:51:04.493] [test_sink] [warning] [test.cpp:120] WARN
+[2021-07-29 10:51:04.493] [test_sink] [error] [test.cpp:121] ERROR
+[2021-07-29 10:51:04.493] [test_sink] [fatal] [test.cpp:122] FATAL
+[2021-07-29 10:51:04.493] [test_sink] [trace] [test.cpp:126] log_trace
+[2021-07-29 10:51:04.493] [test_sink] [debug] [test.cpp:127] log_debug
+[2021-07-29 10:51:04.493] [test_sink] [audit] [test.cpp:128] log_audit
+[2021-07-29 10:51:04.493] [test_sink] [info] [test.cpp:129] log_info
+[2021-07-29 10:51:04.493] [test_sink] [warning] [test.cpp:130] log_warn
+[2021-07-29 10:51:04.493] [test_sink] [error] [test.cpp:131] log_error
+[2021-07-29 10:51:04.493] [test_sink] [fatal] [test.cpp:132] log_fatal
+[2021-07-29 10:51:04.493] [test_sink] [trace] [test.cpp:137] ZERO Trace file and console
+[2021-07-29 10:51:04.493] [test_sink] [debug] [test.cpp:138] ZERO Deb file and console
+[2021-07-29 10:51:04.493] [test_sink] [audit] [test.cpp:139] ZERO Audit file and console
+[2021-07-29 10:51:04.493] [test_sink] [info] [test.cpp:140] ZERO Info file and console
+[2021-07-29 10:51:04.493] [test_sink] [warning] [test.cpp:141] ZERO Warn file and console
+[2021-07-29 10:51:04.493] [test_sink] [error] [test.cpp:142] ZERO Error file and console
+[2021-07-29 10:51:04.493] [test_sink] [fatal] [test.cpp:143] ZERO Fatal file and console
+[2021-07-29 10:51:04.493] [test_sink] [trace] [test.cpp:147] Trace file and console
+[2021-07-29 10:51:04.493] [test_sink] [debug] [test.cpp:148] Deb file and console
+[2021-07-29 10:51:04.493] [test_sink] [audit] [test.cpp:149] Audit file and console
+[2021-07-29 10:51:04.493] [test_sink] [info] [test.cpp:150] Info file and console
+[2021-07-29 10:51:04.493] [test_sink] [warning] [test.cpp:151] Warn file and console
+[2021-07-29 10:51:04.493] [test_sink] [error] [test.cpp:152] Error file and console
+[2021-07-29 10:51:04.493] [test_sink] [fatal] [test.cpp:153] Fatal file and console

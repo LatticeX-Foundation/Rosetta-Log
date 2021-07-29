@@ -1,0 +1,6 @@
+[some_logger_name] [custom-flag] [info] End of example.
+[some_logger_name] [custom-flag] [info] End of example.
+[some_logger_name] [custom-flag] [info] End of example.
+[some_logger_name] [custom-flag] [info] End of example.
+[some_logger_name] [custom-flag] [info] End of example.
+[some_logger_name] [custom-flag] [info] End of example.

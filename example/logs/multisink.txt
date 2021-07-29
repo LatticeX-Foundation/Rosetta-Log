@@ -1,0 +1,7 @@
+[2021-07-29 10:50:29.371] [multi_sink] [fatal] this should appear in both console and file
+[2021-07-29 10:50:29.371] [multi_sink] [error] this should appear in both console and file
+[2021-07-29 10:50:29.371] [multi_sink] [warning] this should appear in both console and file
+[2021-07-29 10:50:29.371] [multi_sink] [info] this message should not appear in the console, only in the file
+[2021-07-29 10:50:29.371] [multi_sink] [audit] ############this message should not appear in the console, only in the file
+[2021-07-29 10:50:29.371] [multi_sink] [debug] ############this message should not appear in the console, only in the file
+[2021-07-29 10:50:29.371] [multi_sink] [trace] ############this message should not appear in the console, only in the file
