@@ -24,7 +24,6 @@
 /**
  * this, take large compile time
  */
-
 std::shared_ptr<spdlog::logger> g_default_logger = nullptr;
 Logger* g_logger = &Logger::Get();
 pthread_rwlock_t Logger::rwlock_ = PTHREAD_RWLOCK_INITIALIZER;
@@ -41,6 +40,7 @@ Logger::Logger() {
 	to_file_ = false;
 	spdlog::set_pattern(pattern_);
 	spdlog::set_level(static_cast<spdlog::level::level_enum>(level_.load()));
+	spdlog::flush_on(static_cast<spdlog::level::level_enum>(level_.load()));
 	spdlog::set_automatic_registration(true);
 	g_default_logger = spdlog::default_logger();
 };
@@ -53,6 +53,7 @@ void Logger::init() {
 	to_file_ = false;
 	spdlog::set_pattern(pattern_);
 	spdlog::set_level(static_cast<spdlog::level::level_enum>(level_.load()));
+	spdlog::flush_on(static_cast<spdlog::level::level_enum>(level_.load()));
 	spdlog::set_automatic_registration(true);
 	g_default_logger = spdlog::default_logger();
 }
@@ -71,6 +72,7 @@ void Logger::release() {
 void Logger::set_level(int level) {
 	level_ = level;
 	spdlog::set_level(static_cast<spdlog::level::level_enum>(level_.load()));
+	spdlog::flush_on(static_cast<spdlog::level::level_enum>(level_.load()));
 }
 
 void Logger::set_filename(const std::string& filename, const std::string& task_id) {
