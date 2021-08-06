@@ -1,2 +1,0 @@
-[daily_logger] [custom-flag] [info] End of example.
-[daily_logger] [custom-flag] [info] End of example.
