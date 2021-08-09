@@ -70,9 +70,13 @@ void Logger::release() {
 }
 
 void Logger::set_level(int level) {
-	level_ = level;
-	spdlog::set_level(static_cast<spdlog::level::level_enum>(level_.load()));
-	spdlog::flush_on(static_cast<spdlog::level::level_enum>(level_.load()));
+	if (level >= 0 && level <= spdlog::level::off) {
+		level_ = level;
+		spdlog::set_level(static_cast<spdlog::level::level_enum>(level_.load()));
+		if (level_.load() != spdlog::level::off) {
+			spdlog::flush_on(static_cast<spdlog::level::level_enum>(level_.load()));
+		}
+	}
 }
 
 void Logger::set_filename(const std::string& filename, const std::string& task_id) {
