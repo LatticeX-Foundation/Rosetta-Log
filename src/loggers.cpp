@@ -115,8 +115,10 @@ void Logger::set_filename(const std::string& filename, const std::string& task_i
 }
 
 void Logger::set_pattern(const std::string& pattern) {
+	pthread_rwlock_wrlock(&rwlock_);
 	pattern_ = pattern;
 	spdlog::set_pattern(pattern_);
+	pthread_rwlock_unlock(&rwlock_);
 }
 
 std::string Logger::get_filename(void) const {
