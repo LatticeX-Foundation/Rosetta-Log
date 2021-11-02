@@ -26,6 +26,8 @@
 
 #define SPDLOG_LOGGER_STREAM(log, lvl) 	LogStream(log, lvl, spdlog::source_loc{__FILE__, __LINE__, __FUNCTION__}) == LogLine()
 
+#define PSPDLOG_LOGGER_STREAM(log, lvl) 	LogLine(log, lvl, spdlog::source_loc{__FILE__, __LINE__, __FUNCTION__})
+
 #ifndef SPDLOG_ROSETTA_LOGGER_NAME 
 #define SPDLOG_ROSETTA_LOGGER_NAME "Rosetta"
 #endif
@@ -58,10 +60,22 @@
 class LogLine 
 {
 	public:
-		LogLine() {
+		LogLine() : log_(nullptr) {
 		}
 
+		LogLine(const char* task_id, spdlog::level::level_enum lvl, spdlog::source_loc loc);
+		LogLine(const std::string& task_id, spdlog::level::level_enum lvl, spdlog::source_loc loc);
+
+		~LogLine();
+
+
 		template<typename T> LogLine& operator<<(const T& t) { 
+			ss_ << t; 
+
+			return *this; 
+		}
+
+		template<typename T> LogLine& operator , (const T& t) { 
 			ss_ << t; 
 
 			return *this; 
@@ -70,6 +84,11 @@ class LogLine
 		std::string str() const { 
 			return ss_.str(); 
 		}
+
+	private:
+		std::shared_ptr<spdlog::logger> log_;
+		spdlog::source_loc loc_;
+		spdlog::level::level_enum lvl_;
 
 	private:
 		std::ostringstream ss_;
@@ -97,6 +116,14 @@ class LogStream
 #define tlog_warn_(task_id) SPDLOG_LOGGER_STREAM(task_id, spdlog::level::warn)
 #define tlog_error_(task_id) SPDLOG_LOGGER_STREAM(task_id, spdlog::level::err)
 #define tlog_fatal_(task_id) SPDLOG_LOGGER_STREAM(task_id, spdlog::level::critical)
+
+#define ptlog_trace_(task_id) PSPDLOG_LOGGER_STREAM(task_id, spdlog::level::trace)
+#define ptlog_debug_(task_id) PSPDLOG_LOGGER_STREAM(task_id, spdlog::level::debug)
+#define ptlog_audit_(task_id) PSPDLOG_LOGGER_STREAM(task_id, spdlog::level::audit)
+#define ptlog_info_(task_id) PSPDLOG_LOGGER_STREAM(task_id, spdlog::level::info)
+#define ptlog_warn_(task_id) PSPDLOG_LOGGER_STREAM(task_id, spdlog::level::warn)
+#define ptlog_error_(task_id) PSPDLOG_LOGGER_STREAM(task_id, spdlog::level::err)
+#define ptlog_fatal_(task_id) PSPDLOG_LOGGER_STREAM(task_id, spdlog::level::critical)
 
 #include"logger_stream.hpp"
 #include"logger_stream_overload.hpp"

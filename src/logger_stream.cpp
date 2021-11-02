@@ -23,6 +23,36 @@
 //#include <spdlog/sinks/basic_file_sink.h>
 #include<iostream>
 
+LogLine::LogLine(const char* task_id, spdlog::level::level_enum lvl, spdlog::source_loc loc) :log_{nullptr}
+, lvl_{lvl}
+, loc_{loc} {
+	log_ = Logger::Get().get_logger(task_id);
+}
+
+LogLine::LogLine(const std::string& task_id, spdlog::level::level_enum lvl, spdlog::source_loc loc) :log_{nullptr}
+, lvl_{lvl}
+, loc_{loc} 
+{
+	log_ = Logger::Get().get_logger(task_id);
+}
+
+LogLine::~LogLine() {
+	if (log_) {
+		if (Logger::Get().get_log_to_stdout()) {
+			g_default_logger->log(loc_, lvl_, "{}", ss_.str()); 
+		}
+
+		if (!log_ || log_ == g_default_logger) {
+			// nothing todo
+			return;
+		}
+
+		if (log_->should_log(lvl_)) {
+			log_->log(loc_, lvl_, "{}", ss_.str()); 
+		}
+	}
+}
+
 LogStream::LogStream(const char* task_id, spdlog::level::level_enum lvl, spdlog::source_loc loc) :log_{nullptr}
 , lvl_{lvl}
 , loc_{loc} {

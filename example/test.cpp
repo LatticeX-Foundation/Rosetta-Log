@@ -17,6 +17,24 @@
 // ==============================================================================
 
 #include "spdlog/loggers.h"
+void print()
+{
+	ptlog_trace_(""), "log_trace", " python-style", " in the print !!!";
+	ptlog_debug_(""), "log_debug", " python-style", " in the print !!!";
+	ptlog_info_(""), "log_info", " python-style", " in the print !!!";
+	ptlog_audit_(""), "log_audit", " python-style", " in the print !!!";
+	ptlog_warn_(""), "log_warn", " python-style", " in the print !!!";
+	ptlog_error_(""), "log_error", " python-style", " in the print !!!";
+	ptlog_fatal_(""), "log_fatal", " python-style", " in the print !!!";
+
+	ptlog_trace_("")<< "log_trace"<<" python-style", " in the print !!!";
+	ptlog_debug_("")<< "log_debug"<<" python-style", " in the print !!!";
+	ptlog_info_("")<<"log_info"<<" python-style", " in the print !!!";
+	ptlog_audit_("")<< "log_audit"<<" python-style", " in the print !!!";
+	ptlog_warn_("")<<"log_warn"<<" python-style", " in the print !!!";
+	ptlog_error_("")<<"log_error"<< " python-style", " in the print !!!";
+	ptlog_fatal_("")<< "log_fatal"<< " python-style", " in the print !!!";
+}
 /*
  *  if compiler in the command line,  for example, in current directory, please execute follow command 
  *  g++ -std=c++11 example.cpp ../src/loggers.cpp ../src/logger_stream.cpp -o example -I../include -lpthread
@@ -55,7 +73,7 @@ int main(int ac, char* av[])
 
 	// use the wrap cpp-stream of tlog_*_ logger, all logger messages will display, begin 
 	tlog_trace_("")<<"log_trace";
-	tlog_debug_("")<<"log_debug";
+	tlog_debug_("")<<"log_debug "<<"tensorflow/core/framework/node_def_util.htensorflow/core/framework/node_def_util.htensorflow/core/framework/node_def_util.htensorflow/core/framework/node_def_util.htensorflow/core/framework/node_def_util.htensorflow/core/framework/node_def_util.htensorflow/core/framework/node_def_util.htensorflow/core/framework/node_def_util.htensorflow/core/framework/node_def_util.htensorflow/core/framework/node_def_util.htensorflow/core/framework/node_def_util.htensorflow/core/framework/node_def_util.htensorflow/core/framework/node_def_util.h";
 	tlog_audit_("")<<"log_audit";
 	tlog_info_("")<<"log_info";
 	tlog_warn_("")<<"log_warn";
@@ -67,6 +85,7 @@ int main(int ac, char* av[])
 	const char* logger_sink = "test_sink";
 	Logger::Get().set_filename("log/test.log", logger_sink);
 	Logger::Get().set_level(spdlog::level::trace);
+	Logger::Get().log_to_stdout(false);
 	// use the wrap fmt of  T*_ logger, all logger messages not only display on console, but also write to file, begin 
 	TTRACE_(logger_sink, "hello world {} - {}", "again", 9909);
 	TTRACE_(logger_sink, "TRACE");
@@ -87,6 +106,31 @@ int main(int ac, char* av[])
 	tlog_error_(logger_sink)<<"log_error";
 	tlog_fatal_(logger_sink)<<"log_fatal";
 	// use the wrap cpp-stream of tlog_*_ logger, all logger messages not only display on console, but also write to file, end 
+	ptlog_trace_(logger_sink), "log_trace", " python-style";
+	print();
+	//pptlog_trace_(logger_sink), "log_trace", " python-style";
+	LogStream(logger_sink, spdlog::level::trace, spdlog::source_loc{"test.cpp", 26, __FUNCTION__}) == (LogLine(), "log_trace", "python-style");
+	ptlog_trace_(logger_sink), "log_trace", " python-style", " in the print !!!";
+	ptlog_debug_(logger_sink), "log_debug", " python-style", " in the print !!!";
+	ptlog_info_(logger_sink), "log_info", " python-style", " in the print !!!";
+	ptlog_audit_(logger_sink), "log_audit", " python-style", " in the print !!!";
+	ptlog_warn_(logger_sink), "log_warn", " python-style", " in the print !!!";
+	ptlog_error_(logger_sink), "log_error", " python-style", " in the print !!!";
+	ptlog_fatal_(logger_sink), "log_fatal", " python-style", " in the print !!!";
+
+	ptlog_trace_(logger_sink)<< "log_trace"<<" python-style", " in the print !!!";
+	ptlog_debug_(logger_sink)<< "log_debug"<<" python-style", " in the print !!!";
+	ptlog_info_(logger_sink)<<"log_info"<<" python-style", " in the print !!!";
+	ptlog_audit_(logger_sink)<< "log_audit"<<" python-style", " in the print !!!";
+	ptlog_warn_(logger_sink)<<"log_warn"<<" python-style", " in the print !!!";
+	ptlog_error_(logger_sink)<<"log_error"<< " python-style", " in the print !!!";
+	ptlog_fatal_(logger_sink)<< "log_fatal"<< " python-style", " in the print !!!";
+	//ptlog_debug_(logger_sink), "log_debug";
+	//ptlog_audit_(logger_sink), "log_audit";
+	//ptlog_info_(logger_sink),  "log_info";
+	//ptlog_warn_(logger_sink),  "log_warn";
+	//ptlog_error_(logger_sink), "log_error";
+	//ptlog_fatal_(logger_sink), "log_fatal";
 	
 	// all logger message will write to console, begin 
 	Trace()<<"ZERO Trace file and console";
@@ -109,8 +153,8 @@ int main(int ac, char* av[])
 	// all logger message will write to file and console, end 
 
 	// set pattern to spdlog's default formart
-	Logger::Get().set_pattern("%+");
-	Logger::Get().log_to_stdout(false);
+	//Logger::Get().set_pattern("%+");
+	//Logger::Get().log_to_stdout(false);
 	// use the wrap fmt of  T*_ logger, all logger messages will write to file, begin 
 	TTRACE_(logger_sink, "hello world {} - {}", "again", 9909);
 	TTRACE_(logger_sink, "TRACE");
@@ -131,7 +175,16 @@ int main(int ac, char* av[])
 	tlog_error_(logger_sink)<<"log_error";
 	tlog_fatal_(logger_sink)<<"log_fatal";
 	// use the wrap cpp-stream of tlog_*_ logger, all logger messages will write to file, end 
+	Logger::Get().set_level(spdlog::level::info);
+	tlog_trace_(logger_sink)<<"log_trace";
+	tlog_debug_(logger_sink)<<"log_debug";
+	tlog_audit_(logger_sink)<<"log_audit";
+	tlog_info_(logger_sink)<<"log_info";
+	tlog_warn_(logger_sink)<<"log_warn";
+	tlog_error_(logger_sink)<<"log_error";
+	tlog_fatal_(logger_sink)<<"log_fatal";
 
+	//throw;
 
 	// all logger message will write to console, begin 
 	Trace()<<"ZERO Trace file";
